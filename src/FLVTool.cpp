@@ -42,11 +42,7 @@ double CFLVTool::str2double(const uchar_t* hex, const uint32_t len)
 	double ret = 0;
 	uchar_t hexstr[8];
 	uint32_t i = 0;
-	//ÐÞÕý
-	if(len > 8)
-	{
-		(uint32_t)len = 8;
-	}
+
 
 	for( i = 0; i < len; i++) 
 	{

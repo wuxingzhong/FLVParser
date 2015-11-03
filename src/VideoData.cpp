@@ -49,7 +49,6 @@ void CVideoData::print_info() const
 	printf("m_codec_id           = %d\n", m_codec_id);
 	printf("m_AVC_packet_type    = %d\n", m_AVC_packet_type);
 	printf("m_composition_time   = %d\n", CFLVTool::rev_toi(m_composition_time, 3) );
-	printf("m_frame_type         = %d\n", m_frame_type);
-	printf("m_pdata              = %#x\n\n", m_frame_type);
+	printf("m_pdata              = %02x\n\n", *m_pdata);
 	    
 }

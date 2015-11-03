@@ -18,8 +18,8 @@ protected:
 
 private:
 	/*video 信息*/
-	uchar_t m_frame_type :4;			//frame类型
 	uchar_t m_codec_id   :4;			//编码器id    7 -- H264/AVC
+	uchar_t m_frame_type :4;			//frame类型
 	
 	/*video 数据 H264/AVC*/
 	uchar_t m_AVC_packet_type;			//0:  AVC sequence header 1:  AVC NALU  2:  AVC end of sequence

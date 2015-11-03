@@ -6,6 +6,7 @@
 #include "FLVHeader.h"
 #include "TagHeader.h"
 #include "MetaData.h"
+#include "VideoData.h"
 
 //文件路径
 char* flv_file = "./test.flv";
@@ -16,6 +17,7 @@ int main()
 	preTagSize pretag_size; 
 	CTagHeader tag_head;
 	CMetaData metadata;
+	CVideoData videodata;
 	osl_log_set_target( "console://" );
 	int count = 10 ;
 	/* 初始化资源 */
@@ -52,6 +54,10 @@ int main()
 		{
 			metadata.OnData(buf);
 			metadata.print_info();
+		}else if(tag_head.GetTagtype() == 0x09)
+		{
+			videodata.OnData(buf);
+			videodata.print_info();
 		}
 		//打印
 		printf("pretag_size = %u\n", CFLVTool::rev_toi(pretag_size, sizeof(pretag_size) ) );
