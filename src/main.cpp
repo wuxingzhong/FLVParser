@@ -17,6 +17,7 @@ int main()
 	CTagHeader tag_head;
 	CMetaData metadata;
 	osl_log_set_target( "console://" );
+	int count = 10 ;
 	/* 初始化资源 */
 	int32_t ret = osl_init( "123");
 
@@ -41,7 +42,7 @@ int main()
 	osl_file_read(fp, &flv_head, sizeof(flv_head));
 
 	
-	int count = 10 ; 
+
 	while ( !osl_file_eof( fp ) && count -- )
 	{	
 		osl_file_read(fp, &pretag_size, sizeof(preTagSize));
