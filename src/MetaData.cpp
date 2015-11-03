@@ -147,10 +147,10 @@ double CMetaData::GetFramerate()
 }
 
 /*¥Ú”°–≈œ¢*/
-void CMetaData::print_info()
+void CMetaData::print_info() const
 {
 	printf("m_duration         = %f\n", m_duration);
 	printf("m_width            = %f\n", m_width);
 	printf("m_height           = %f\n", m_height);
-	printf("m_framerate        = %f\n", m_framerate);
+	printf("m_framerate        = %f\n\n", m_framerate);
 }

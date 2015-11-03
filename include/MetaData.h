@@ -25,7 +25,7 @@ public:
 	double GetFramerate();
 	
 	/*¥Ú”°–≈œ¢*/
-	void print_info();
+	void print_info() const ;
 
 private:
 	uchar_t *m_meta;

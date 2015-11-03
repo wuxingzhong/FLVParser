@@ -180,6 +180,10 @@
 				RelativePath=".\src\MetaData.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\src\TagHeader.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
