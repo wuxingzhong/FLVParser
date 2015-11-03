@@ -35,7 +35,7 @@ uint32_t CFLVTool::rev_toi(const void* p, int len)
 	return ret;
 }
 
-/*改变大小端 字符串转double*/
+/*改变大小端 字符串转double 213123*/
 double CFLVTool::str2double(const uchar_t* hex, const uint32_t len) 
 {
 
