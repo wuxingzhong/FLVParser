@@ -5,10 +5,12 @@ CTagHeader::CTagHeader(void* buf)
 {
 	OnData(buf);
 }
+
 CTagHeader::~CTagHeader(void)
 {
 
 }
+
 void  CTagHeader::OnData(void* buf)
 {
 	//³õÊ¼»¯Îª0 
@@ -24,10 +26,12 @@ uint32_t CTagHeader::GetTagtype() const
 { 
 	return m_tagtype; 
 }
+
 uint32_t  CTagHeader::GetDatasize() const
 {
 	return CFLVTool::rev_toi(m_datasize, 3 ); 
 }
+
 uint32_t CTagHeader::GetTimestamp()  const
 { 
 	return CFLVTool::rev_toi(m_timestamp, 3) | (m_timestampextended) << 24; 
