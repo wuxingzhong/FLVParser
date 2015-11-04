@@ -7,6 +7,7 @@
 #include "TagHeader.h"
 #include "MetaData.h"
 #include "VideoData.h"
+#include "AudioData.h"
 
 //文件路径
 char* flv_file = "./test.flv";
@@ -18,8 +19,9 @@ int main()
 	CTagHeader tag_head;
 	CMetaData metadata;
 	CVideoData videodata;
+	CAudioData audiodata;
 	osl_log_set_target( "console://" );
-	int count = 10 ;
+	int count = 20 ;
 	/* 初始化资源 */
 	int32_t ret = osl_init( "123");
 
@@ -58,6 +60,10 @@ int main()
 		{
 			videodata.OnData(buf);
 			videodata.print_info();
+		}else if(tag_head.GetTagtype() == 0x08)
+		{
+			audiodata.OnData(buf);
+			audiodata.print_info();
 		}
 		//打印
 		printf("pretag_size = %u\n", CFLVTool::rev_toi(pretag_size, sizeof(pretag_size) ) );

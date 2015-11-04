@@ -34,7 +34,7 @@ private:
 	uchar_t m_typeflags_video			:1;			//UB [1]	1 = Video tags are present
 	uchar_t m_typeflags_reserved		:1;			//UB [1]	Shall be 0
 	uchar_t m_typeflags_audio			:1;			//UB [1]	1 = Audio tags are present
-	uchar_t m_typeflags_eserved		:5;			//UB [5]	Shall be 0
+	uchar_t m_typeflags_eserved		    :5;			//UB [5]	Shall be 0
 
 	uchar_t dataoffset[4];					//头的长度  最后4个字节表示FLV header 长度.
 };
