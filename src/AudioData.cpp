@@ -53,5 +53,15 @@ void CAudioData::print_info() const
 	printf("m_rate                = %d\n", m_rate);
 	printf("m_sound_format        = %d\n", m_sound_format);
 	printf("m_ACC_packet_type     = %d\n", m_ACC_packet_type);
-	printf("m_pdata               = %02x\n\n", *m_pdata);
+	
+	if(m_pdata == NULL) return;
+
+	printf("m_pdata              ");
+	for (int i= 0; i< 10; i++)
+	{
+		printf("%02x ", m_pdata[i]);
+	}
+	printf("\n\n");
 }
+
+

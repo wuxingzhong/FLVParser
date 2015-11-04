@@ -28,6 +28,7 @@ void CVideoData::OnData(void* buf)
 	AVCDecoderConfigurationRecord
 	IF AVCPacketType == 1
 	One or more NALUs (Full frames are required)
+
 	*/
 
 	if(m_AVC_packet_type == 0 || m_AVC_packet_type == 1)
@@ -55,5 +56,13 @@ void CVideoData::print_info() const
 	printf("m_codec_id           = %d\n", m_codec_id);
 	printf("m_AVC_packet_type    = %d\n", m_AVC_packet_type);
 	printf("m_composition_time   = %d\n", CFLVTool::rev_toi(m_composition_time, 3) );
-	printf("m_pdata              = %02x\n\n", *m_pdata);
+	
+	if(m_pdata == NULL) return;
+
+	printf("m_pdata              ");
+	for (int i= 0; i< 10; i++)
+	{
+		printf("%02x ", m_pdata[i]);
+	}
+	printf("\n\n");
 }

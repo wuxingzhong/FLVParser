@@ -9,6 +9,10 @@
 #include "VideoData.h"
 #include "AudioData.h"
 
+
+#define TAG_TYPE_AUDIO	0x8
+#define TAG_TYPE_VIDEO	0x9
+#define TAG_TYPE_SCRIPT 0x12
 //ÎÄ¼þÂ·¾¶
 char* flv_file = "./test.flv";
 
@@ -52,15 +56,15 @@ int main()
 		osl_file_read(fp, &pretag_size, sizeof(preTagSize));
 		osl_file_read(fp, &tag_head, sizeof(tag_head));
 		osl_file_read(fp, buf, tag_head.GetDatasize() );
-		if (tag_head.GetTagtype() == 0x12)
+		if (tag_head.GetTagtype() == TAG_TYPE_SCRIPT)
 		{
 			metadata.OnData(buf);
 			metadata.print_info();
-		}else if(tag_head.GetTagtype() == 0x09)
+		}else if(tag_head.GetTagtype() == TAG_TYPE_VIDEO)
 		{
 			videodata.OnData(buf);
 			videodata.print_info();
-		}else if(tag_head.GetTagtype() == 0x08)
+		}else if(tag_head.GetTagtype() == TAG_TYPE_AUDIO)
 		{
 			audiodata.OnData(buf);
 			audiodata.print_info();

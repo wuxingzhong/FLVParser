@@ -1,5 +1,34 @@
 #include "stdafx.h"
 
+
+
+//AVCDecoderConfigurationRecord 结构的定义：aligned(8) 
+class AVCDecoderConfigurationRecord 
+{ 
+public:
+private:
+	uchar_t m_configurationVersion;					//版本号
+	uchar_t m_AVCProfileIndication;					//sps[1]
+	uchar_t m_profile_compatibility;				//sps[2]
+	uchar_t m_AVCLevelIndication;					//sps[3]
+
+	uchar_t m_reserved1						:6;		//111111 
+	uchar_t m_lengthSizeMinusOne			:2;		//NALUnitLength的长度-1, 一般为3 
+	//是 H.264 视频中 NALU 的长度，计算方法是 1 + (lengthSizeMinusOne & 3)，实际计算结果一直是4
+	uchar_t m_reserved2 					:3;		//111; 
+	uchar_t m_numOfSequenceParameterSets	:5;		//sps个数, 一般为1
+	//for (int i =0; i< numOfSequenceParameterSets; i++)
+	//{ 
+	//	uchar_t sequenceParameterSetLength[2]; 
+	//	bit(8*sequenceParameterSetLength) sequenceParameterSetNALUnit; 
+	//} 
+	//uchar_t numOfPictureParameterSets; 
+	//for ( int i=0; i< numOfPictureParameterSets; i++) { 
+	//	unsigned int(16) pictureParameterSetLength; 
+	//	bit(8*pictureParameterSetLength) pictureParameterSetNALUnit; 
+	//} 
+};
+
 class  CVideoData
 {
 public:
@@ -27,4 +56,7 @@ private:
 	uchar_t* m_pdata;					//AVC_packet_type == 0   AVC_packet_type == 1 One or more NALUs  Else Empty
 
 };
+
+
+
 

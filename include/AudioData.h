@@ -1,5 +1,20 @@
 #include "stdafx.h"
 
+
+
+
+/*
+class AudioSpecificConfig
+{
+	uchar_t m_audioObjectType :5; //编码结构类型 AAC-LC 为2
+	
+	uchar_t 
+};
+*/
+
+
+
+
 class  CAudioData
 {
 public:
