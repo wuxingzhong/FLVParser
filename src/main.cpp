@@ -25,6 +25,7 @@ int main()
 	CVideoData videodata;
 	CAudioData audiodata;
 	osl_log_set_target( "console://" );
+	printf("====== %d\n", sizeof(AudioSpecificConfig) );
 	int count = 20 ;
 	/* 初始化资源 */
 	int32_t ret = osl_init( "123");

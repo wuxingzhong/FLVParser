@@ -11,20 +11,22 @@ private:
 	uchar_t m_AVCProfileIndication;					//sps[1]
 	uchar_t m_profile_compatibility;				//sps[2]
 	uchar_t m_AVCLevelIndication;					//sps[3]
-
-	uchar_t m_reserved1						:6;		//111111 
+	
+	//是 H.264 视频中 NALU 的长度，计算方法是 1 + (lengthSizeMinusOne & 0x3, 即低2位) , 实际计算结果一直是4
 	uchar_t m_lengthSizeMinusOne			:2;		//NALUnitLength的长度-1, 一般为3 
-	//是 H.264 视频中 NALU 的长度，计算方法是 1 + (lengthSizeMinusOne & 3)，实际计算结果一直是4
-	uchar_t m_reserved2 					:3;		//111; 
+	uchar_t m_reserved1						:6;		//111111 
+
+	
 	uchar_t m_numOfSequenceParameterSets	:5;		//sps个数, 一般为1
-	//for (int i =0; i< numOfSequenceParameterSets; i++)
-	//{ 
-	//	uchar_t sequenceParameterSetLength[2]; 
-	//	bit(8*sequenceParameterSetLength) sequenceParameterSetNALUnit; 
-	//} 
-	//uchar_t numOfPictureParameterSets; 
-	//for ( int i=0; i< numOfPictureParameterSets; i++) { 
-	//	unsigned int(16) pictureParameterSetLength; 
+	uchar_t m_reserved2 					:3;		//111; 
+
+
+	uchar_t m_sequenceParameterSetLength[2];
+	//bit(8*sequenceParameterSetLength) sequenceParameterSetNALUnit;
+
+	uchar_t m_numOfPictureParameterSets;
+
+	uchar_t m_pictureParameterSetLength;
 	//	bit(8*pictureParameterSetLength) pictureParameterSetNALUnit; 
 	//} 
 };
