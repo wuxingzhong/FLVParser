@@ -1,6 +1,9 @@
 #pragma once
 #include "stdafx.h"
 #include "FLVTool.h"
+
+
+
 //1. flvÎÄ¼şÍ·
 class CFLVHeader 
 {

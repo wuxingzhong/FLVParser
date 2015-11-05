@@ -1,10 +1,8 @@
 #include "stdafx.h"
 
 
-
-
-
-
+#define TAG_AAC_SEQUENCE_HEADER 0x00
+#define TAG_AAC_RAW_DATA        0x01
 
 class  CAudioData
 {

@@ -2,6 +2,10 @@
 #pragma once
 #include "stdafx.h"
 
+#define TAG_TYPE_AUDIO			0x8
+#define TAG_TYPE_VIDEO			0x9
+#define TAG_TYPE_SCRIPT			0x12
+
 class  CTagHeader
 {
 public:

@@ -84,3 +84,9 @@ uchar_t* CAVCDecoderConfigurationRecord::GetP_pictureParameterSetNALUnit() const
 { 
 	return m_p_pictureParameterSetNALUnit;
 }
+
+/*获取NAL包长度描述*/
+uchar_t CAVCDecoderConfigurationRecord::GetNALUnitLength() const 
+{ 
+	return m_lengthSizeMinusOne +1;
+}

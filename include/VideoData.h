@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#define TAG_AVC_SEQUENCE_HEADER	0x00
+#define TAG_AVC_NALU			0x01
 
 class  CVideoData
 {

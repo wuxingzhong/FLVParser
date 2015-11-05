@@ -13,14 +13,17 @@ public:
 	/*sps长度*/
 	int32_t GetSequenceParameterSetLength() const;
 
-	/*获取sps*/
+	/*获取sps sps头字节为67，67&0x1f = 7 */
 	uchar_t* GetP_sequenceParameterSetNALUnit() const;
 
 	/*pps长度*/
 	int32_t GetPictureParameterSetLength() const ;
 
-	/*获取pps*/
+	/*获取pps，pps头字节为68，68&0x1f=8*/
 	uchar_t* GetP_pictureParameterSetNALUnit() const ;
+	
+	/*获取NAL包长度描述*/
+	uchar_t GetNALUnitLength() const ;
 
 private:
 	uchar_t m_configurationVersion;					//版本号
@@ -30,6 +33,7 @@ private:
 
 	//是 H.264 视频中 NALU 的长度，计算方法是 1 + (lengthSizeMinusOne & 0x3, 即低2位) , 实际计算结果一直是4
 	uchar_t m_lengthSizeMinusOne			:2;		//NALUnitLength的长度-1, 一般为3 
+	
 	uchar_t m_reserved1						:6;		//111111 
 
 
