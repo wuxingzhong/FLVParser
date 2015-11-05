@@ -1,20 +1,6 @@
 #include "stdafx.h"
 
 
-class CAudioSpecificConfig
-{
-public:
-private:
-	uchar_t m_samplingFrequencyIndex1	:3; //m_samplingFrequencyIndex2 <<3 | m_samplingFrequencyIndex1
-	uchar_t m_audioObjectType			:5; //编码结构类型 AAC-LC 为2
-
-	uchar_t m_extensionFlag				:1;
-	uchar_t m_dependsOnCoreCoder		:1;
-	uchar_t m_frameLengthFlag			:1;
-	uchar_t m_channelConfiguration		:4;
-	uchar_t m_samplingFrequencyIndex2	:1;
-
-};
 
 
 
@@ -30,7 +16,9 @@ public:
 
 	/*获取音频数据*/
 	uchar_t* GetPdata() const;
-
+	
+	/*获取 ACC_packet_type*/
+	uchar_t GetACC_packet_type() const;
 	/*打印信息*/
 	void print_info() const ;
 
@@ -46,6 +34,7 @@ private:
 	
 	/*audio  数据区*/
 	uchar_t  m_ACC_packet_type;			//0--AAC sequence header        1--AAC raw  data   
+
 	uchar_t* m_pdata;
 
 };

@@ -169,6 +169,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\AudioSpecificConfig.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\AVCDecoderConfigurationRecord.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\FLVHeader.cpp"
 				>
 			</File>
@@ -200,6 +208,14 @@
 			>
 			<File
 				RelativePath=".\include\AudioData.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\AudioSpecificConfig.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\AVCDecoderConfigurationRecord.h"
 				>
 			</File>
 			<File

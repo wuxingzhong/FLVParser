@@ -8,7 +8,8 @@
 #include "MetaData.h"
 #include "VideoData.h"
 #include "AudioData.h"
-
+#include "AVCDecoderConfigurationRecord.h"
+#include "AudioSpecificConfig.h"
 
 #define TAG_TYPE_AUDIO	0x8
 #define TAG_TYPE_VIDEO	0x9
@@ -67,12 +68,18 @@ int main()
 			if( videodata.GetAVC_packet_type() == 0 )
 			{
 				CAVCDecoderConfigurationRecord config_record;
-				//config_record.
+				config_record.OnData(videodata.GetPdata());
 			}
 			videodata.print_info();
 		}else if(tag_head.GetTagtype() == TAG_TYPE_AUDIO)
 		{
 			audiodata.OnData(buf);
+			if(audiodata.GetACC_packet_type() == 0)
+			{
+				CAudioSpecificConfig audio_config;
+				audio_config.OnData(audiodata.GetPdata());
+				int aa = audio_config.GetSamplingFrequencyIndex();
+			}
 			audiodata.print_info();
 		}
 		//¥Ú”°

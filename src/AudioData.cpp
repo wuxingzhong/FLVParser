@@ -45,6 +45,11 @@ uchar_t* CAudioData::GetPdata() const
 	return m_pdata; 
 }
 
+uchar_t CAudioData::GetACC_packet_type() const 
+{ 
+	return m_ACC_packet_type; 
+}
+
 /*¥Ú”°–≈œ¢*/
 void CAudioData::print_info() const 
 {

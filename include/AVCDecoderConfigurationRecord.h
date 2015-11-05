@@ -9,10 +9,18 @@ public:
 	~CAVCDecoderConfigurationRecord(void);
 	/*送入数据*/
 	void OnData(void* buf);
+
 	/*sps长度*/
 	int32_t GetSequenceParameterSetLength() const;
+
+	/*获取sps*/
+	uchar_t* GetP_sequenceParameterSetNALUnit() const;
+
 	/*pps长度*/
 	int32_t GetPictureParameterSetLength() const ;
+
+	/*获取pps*/
+	uchar_t* GetP_pictureParameterSetNALUnit() const ;
 
 private:
 	uchar_t m_configurationVersion;					//版本号
@@ -39,4 +47,5 @@ private:
 	uchar_t m_pictureParameterSetLength[2];
 
 	uchar_t* m_p_pictureParameterSetNALUnit;		//= new uchar_t[pictureParameterSetLength] 
+
 };
