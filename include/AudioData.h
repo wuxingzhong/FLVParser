@@ -1,10 +1,7 @@
 #include "stdafx.h"
 
 
-
-
-
-class AudioSpecificConfig
+class CAudioSpecificConfig
 {
 public:
 private:
@@ -16,6 +13,7 @@ private:
 	uchar_t m_frameLengthFlag			:1;
 	uchar_t m_channelConfiguration		:4;
 	uchar_t m_samplingFrequencyIndex2	:1;
+
 };
 
 

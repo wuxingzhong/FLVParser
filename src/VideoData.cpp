@@ -41,6 +41,10 @@ void CVideoData::OnData(void* buf)
 	}
 }
 
+uchar_t CVideoData::GetAVC_packet_type() const 
+{ 
+	return m_AVC_packet_type; 
+}
 
 /*获取视频数据*/
 

@@ -25,7 +25,7 @@ int main()
 	CVideoData videodata;
 	CAudioData audiodata;
 	osl_log_set_target( "console://" );
-	printf("====== %d\n", sizeof(AudioSpecificConfig) );
+	printf("====== %d\n", sizeof(CAudioSpecificConfig) );
 	int count = 20 ;
 	/* 初始化资源 */
 	int32_t ret = osl_init( "123");
@@ -64,6 +64,11 @@ int main()
 		}else if(tag_head.GetTagtype() == TAG_TYPE_VIDEO)
 		{
 			videodata.OnData(buf);
+			if( videodata.GetAVC_packet_type() == 0 )
+			{
+				CAVCDecoderConfigurationRecord config_record;
+				//config_record.
+			}
 			videodata.print_info();
 		}else if(tag_head.GetTagtype() == TAG_TYPE_AUDIO)
 		{
