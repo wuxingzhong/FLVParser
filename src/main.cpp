@@ -31,6 +31,26 @@
 char* flv_file = "./test.flv";
 char* H264_file = "d:/test.h264";
 
+//在一段内存中查找 出现的一段字节码 返回发现的字节码起始位置 ,为发现返回NULL
+uchar_t* MemFind(uchar_t* pmain, int32_t main_len, uchar_t* psub, int32_t sub_len)
+{
+	int32_t offset = 0;
+	while( (offset + sub_len)< main_len )
+	{
+		if ( memcmp(pmain + offset, psub, sub_len) == 0)
+		{
+			break ;
+		}
+		offset ++;
+	}
+	if( main_len <= (offset + sub_len) )
+	{
+		return NULL;
+	}
+	return pmain + offset;
+
+}
+
 int main()
 {
 	CFLVHeader flv_head;
