@@ -181,6 +181,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\FlvParser.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\FLVTool.cpp"
 				>
 			</File>
