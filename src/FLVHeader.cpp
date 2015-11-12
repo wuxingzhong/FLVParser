@@ -24,7 +24,7 @@ void CFLVHeader::OnData(void* buf)
 /*ÊÇ·ñÊÇflvÍ·*/
 bool CFLVHeader::isFLVHeader() const
 {
-	if(m_signature_1 == 'F' && m_signature_1 == 'L' && m_signature_1 == 'V')
+	if(m_signature_1 == 'F' && m_signature_2 == 'L' && m_signature_3 == 'V')
 	{
 		return true;
 	}

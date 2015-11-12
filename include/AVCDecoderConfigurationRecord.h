@@ -1,7 +1,22 @@
 
 #pragma once
 #include "FLVTool.h"
-//AVCDecoderConfigurationRecord 结构的定义：aligned(8) 
+
+#define NALU_TYPE_SLICE 1
+#define NALU_TYPE_DPA 2
+#define NALU_TYPE_DPB 3
+#define NALU_TYPE_DPC 4
+#define NALU_TYPE_IDR 5   //tag中读取的第一个关键帧（I帧）大部分是有一个SEI和一个I帧，
+//有些不常见的是有多个SEI和一个I帧，这里未作处理，需要注意，
+#define NALU_TYPE_SEI 6
+#define NALU_TYPE_SPS 7
+#define NALU_TYPE_PPS 8
+#define NALU_TYPE_AUD 9　　//访问分隔符
+#define NALU_TYPE_EOSEQ 10
+#define NALU_TYPE_EOSTREAM 11
+#define NALU_TYPE_FILL 12
+
+//AVCDecoderConfigurationRecord 
 class CAVCDecoderConfigurationRecord 
 { 
 public:
