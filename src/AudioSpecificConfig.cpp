@@ -26,3 +26,14 @@ uchar_t CAudioSpecificConfig::GetSamplingFrequencyIndex() const
 {
 	return m_samplingFrequencyIndex1<<1 | m_samplingFrequencyIndex2;
 }
+
+/*获取 AudioObjectType*/
+uchar_t CAudioSpecificConfig::GetAudioObjectType() const
+{
+	return m_audioObjectType;
+}
+/*获取channelConfiguration*/
+uchar_t CAudioSpecificConfig::GetChannelConfiguration() const
+{
+	return m_channelConfiguration;
+}

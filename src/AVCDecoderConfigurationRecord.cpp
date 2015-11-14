@@ -51,10 +51,12 @@ void CAVCDecoderConfigurationRecord::OnData(void* buf)
 	if(m_p_sequenceParameterSetNALUnit !=NULL )
 	{
 		delete[] m_p_sequenceParameterSetNALUnit;
+		m_p_sequenceParameterSetNALUnit = NULL ;
 	}
 	if(m_p_pictureParameterSetNALUnit!=NULL )
 	{
 		delete[] m_p_pictureParameterSetNALUnit;
+		m_p_pictureParameterSetNALUnit = NULL;
 	}
 
 	//转换数据
@@ -63,6 +65,7 @@ void CAVCDecoderConfigurationRecord::OnData(void* buf)
 	offset = 8;
 	//修正数据
 	len_sps = GetSequenceParameterSetLength() ;
+
 	m_p_sequenceParameterSetNALUnit = new uchar_t[len_sps];
   
 	memcpy(m_p_sequenceParameterSetNALUnit,pbuf + offset, len_sps);
@@ -72,6 +75,10 @@ void CAVCDecoderConfigurationRecord::OnData(void* buf)
 	memcpy(m_pictureParameterSetLength , pbuf+ offset, 2);
 	offset += 2;
 	len_pps = GetPictureParameterSetLength();
+	if(len_pps >2000)
+	{
+		printf("asdfsdafdsf");
+	}
 	m_p_pictureParameterSetNALUnit = new uchar_t[len_pps];
 	memcpy(m_p_pictureParameterSetNALUnit,pbuf + offset, len_pps);
 
@@ -104,5 +111,5 @@ uchar_t* CAVCDecoderConfigurationRecord::GetP_pictureParameterSetNALUnit() const
 /*获取NAL包长度描述*/
 uchar_t CAVCDecoderConfigurationRecord::GetNALUnitLength() const 
 { 
-	return m_lengthSizeMinusOne +1;
+	return m_lengthSizeMinusOne + 1;
 }

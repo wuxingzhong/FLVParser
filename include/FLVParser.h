@@ -1,3 +1,4 @@
+#pragma once
 #include "stdafx.h"
 #include "osl.h"
 #include "FLVHeader.h"
@@ -7,6 +8,7 @@
 #include "AudioData.h"
 #include "AVCDecoderConfigurationRecord.h"
 #include "AudioSpecificConfig.h"
+#include "AdtsHeader.h"
 
 #define NALU_TYPE_SLICE 1
 #define NALU_TYPE_DPA 2
@@ -29,7 +31,7 @@
 class CFlvParser
 {
 public:
-	CFlvParser(char_t* file_path = NULL, uint32_t bufsize = 1024*90);
+	CFlvParser(char_t* file_path = NULL, uint32_t bufsize = 1024*1024*5);
 	~CFlvParser(void);
 
 	/* 初始化 */
@@ -55,6 +57,7 @@ public:
 	
 private:
 	char_t* m_pbuf;                             //缓冲区
+	int32_t m_bufsize;                          //缓冲区大小
 	void* m_flv_fp;						        //flv文件
 	CFLVHeader m_flv_head;				        //flv头
 	preTagSize m_pretag_size;				    //前一个tag的大小
@@ -66,5 +69,8 @@ private:
 
 	CAudioData m_audiodata;				        //音频数据
 	CAudioSpecificConfig m_audio_config;	    //音频数据配置
+
+	CAdtsHeader m_adtshead;						//ACC音频头部信息 0xfff开头
+
 	static uchar_t const nal_header[4];         //nal头四个字节 00 00 00 01
 };
